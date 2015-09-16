@@ -14,17 +14,30 @@ import org.apache.hadoop.io.SequenceFile;
 import org.apache.hadoop.io.Text;  
 import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.io.BytesWritable;
+import org.apache.hadoop.io.IntWritable;
 
 public class raw2seq
 {  
+	//public static void gen_seqfile(String[] args) throws IOException 
 	public static void main(String[] args) throws IOException 
 	{  
 		String seqFsUrl;
-		String image_file_name("./mnist/train-images.idx3-ubyte");
-		String label_file_name("./mnist/train-images.idx3-ubyte");
+		//switch for write train or test data
+		boolean train_or_test=true;
+		//boolean train_or_test=false;
 		//input stream
-		File input_image_file= new File(image_file_name);
-		File input_label_file= new File(label_file_name);
+		File input_image_file=null;
+		File input_label_file=null; 
+		if(train_or_test)
+		{
+			input_image_file= new File("./mnist/train-images.idx3-ubyte");
+			input_label_file= new File("./mnist/train-labels.idx1-ubyte");
+		}
+		else
+		{
+			input_image_file= new File("./mnist/t10k-images.idx3-ubyte");
+			input_label_file= new File("./mnist/t10k-labels.idx1-ubyte");
+		}
 
 		FileInputStream image_stream= new FileInputStream(input_image_file);
 		FileInputStream label_stream= new FileInputStream(input_label_file);
@@ -34,64 +47,71 @@ public class raw2seq
 
 		int label_number=(int)input_label_file.length();
 		int sample_number=(int)input_label_file.length();
+		//mnist head information
+		int image_magic_number;
+		int image_item_number;
+		int image_col_number;
+		int image_row_number;
+
+		int label_magic_number;
+		int label_item_number;
 
 		//output sequence file
-		seqFsUrl="mnist_train.seq";
+		if(train_or_test)
+		{
+			seqFsUrl="mnist_train.seq";
+		}
+		else
+		{
+			seqFsUrl="mnist_test.seq";
+		}
+
 		Configuration conf = new Configuration();  
 		FileSystem fs = FileSystem.get(URI.create(seqFsUrl),conf);  
 		Path seqPath = new Path(seqFsUrl);  
 		SequenceFile.Writer writer = null;  
-		
-		//input signal parts and redundancy
+
+		//Mnist Image and Label buffer
 		byte[] image= new byte[784];
+		//byte label;
 		byte[] label= new byte[1];
-		
-		Text key = new Text();
-		String key_str;
-		BytesWritable signal = new BytesWritable();
+
+		//IntWritable key= new IntWritable();
+		BytesWritable key= new BytesWritable();
+		BytesWritable value= new BytesWritable();
 		try 
-		{	//返回一个SequenceFile.Writer实例 需要数据流和path对象 将数据写入了path对象  
-			writer = SequenceFile.createWriter(fs, conf, seqPath,Text.class, BytesWritable.class);  
-			int i=0;
-			int value_number=Integer.parseInt(args[2]);
-			//while(i<62063)
-			while(i<value_number)
+		{	//return a SequenceFile.Writer instance, need dataflow and path object
+			writer = SequenceFile.createWriter(fs, conf, seqPath,BytesWritable.class, BytesWritable.class);  
+			label_magic_number=label_data.readInt();
+			label_item_number=label_data.readInt();
+
+			image_magic_number=image_data.readInt(); 
+			image_item_number=image_data.readInt();
+			image_col_number=image_data.readInt();
+			image_row_number=image_data.readInt();
+
+			System.out.println(label_item_number);
+			System.out.println(image_item_number);
+			System.out.println(image_col_number);
+			System.out.println(image_row_number);
+			for(int i=1;i<=label_item_number;i++)
 			{
-				for(int j=0;j<50;j++)
-				{
-					key_array[j]=(char)signalstream.readByte();
-					if(key_array[j]==0)
-						break;
-				}
-				for(int j=0;j<2;j++)
-				{
-					byte temp = signalstream.readByte();
-				}
-				for(int j=0;j<5760;j++)
-				{
-					b[j]=signalstream.readByte();
-					if(i==0)	
-					{
-						match[j]=b[j];
-					}
-				}
-				for(int j=5760;j<11520;j++)
-				{
-					b[j]=match[j-5760];
-				}
+				//label=label_data.readByte();
+				//key.set(i*10+(int)label);
+				label[0]=label_data.readByte();
+				key.set(label,0,1);
 
-				key_str=new String(key_array);
-				key.set(key_str);
-				//System.out.println("key:"+key_str);
-				if(i%1000==0)
+				for(int j=0;j<784;j++)
 				{
-					System.out.println("generate 1000 key value pairs");
+					image[j]=image_data.readByte();
 				}
+				value.set(image,0,784);
 
-				signal.set(b,0,11520);
-
-				writer.append(key, signal);
-				i++;
+				writer.append(key,value);
+				if(i%100==0)
+				{
+					System.out.println(i);
+				}
 			}
 		}
 		finally 

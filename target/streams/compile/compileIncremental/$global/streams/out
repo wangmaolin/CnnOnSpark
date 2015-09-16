@@ -14,79 +14,15 @@
 [0m[[0mdebug[0m] [0m	external source: Set()[0m
 [0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/home/maolin/CnnOnSpark/src/main/java/raw2seq.java)[0m
 [0m[[0minfo[0m] [0mCompiling 1 Java source to /home/maolin/CnnOnSpark/target/scala-2.10/classes...[0m
-[0m[[0mdebug[0m] [0mAttempting to call com.sun.tools.javac.api.JavacTool@37c0ae60 directly...[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:19: package org.opencv.core does not exist[0m
-[0m[[31merror[0m] [0morg.opencv.core.Core[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:20: package org.opencv.core does not exist[0m
-[0m[[31merror[0m] [0morg.opencv.core.Mat[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:21: package org.opencv.core does not exist[0m
-[0m[[31merror[0m] [0morg.opencv.core.CvType[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:22: package org.opencv.core does not exist[0m
-[0m[[31merror[0m] [0morg.opencv.core.Scalar[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:25: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   variable Core[0m
-[0m[[31merror[0m] [0m  location: class SimpleSample[0m
-[0m[[31merror[0m] [0mCore[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:28: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   variable Core[0m
-[0m[[31merror[0m] [0m  location: class SimpleSample[0m
-[0m[[31merror[0m] [0mCore[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:29: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   class Mat[0m
-[0m[[31merror[0m] [0m  location: class SimpleSample[0m
-[0m[[31merror[0m] [0mMat[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:29: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   class Mat[0m
-[0m[[31merror[0m] [0m  location: class SimpleSample[0m
-[0m[[31merror[0m] [0mMat[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:29: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   variable CvType[0m
-[0m[[31merror[0m] [0m  location: class SimpleSample[0m
-[0m[[31merror[0m] [0mCvType[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:29: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   class Scalar[0m
-[0m[[31merror[0m] [0m  location: class SimpleSample[0m
-[0m[[31merror[0m] [0mScalar[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:31: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   class Mat[0m
-[0m[[31merror[0m] [0m  location: class SimpleSample[0m
-[0m[[31merror[0m] [0mMat[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:32: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   class Scalar[0m
-[0m[[31merror[0m] [0m  location: class SimpleSample[0m
-[0m[[31merror[0m] [0mScalar[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:33: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   class Mat[0m
-[0m[[31merror[0m] [0m  location: class SimpleSample[0m
-[0m[[31merror[0m] [0mMat[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:34: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   class Scalar[0m
-[0m[[31merror[0m] [0m  location: class SimpleSample[0m
-[0m[[31merror[0m] [0mScalar[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:46: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   class DataInputStream[0m
-[0m[[31merror[0m] [0m  location: class raw2seq[0m
-[0m[[31merror[0m] [0mDataInputStream[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:46: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   class DataInputStream[0m
-[0m[[31merror[0m] [0m  location: class raw2seq[0m
-[0m[[31merror[0m] [0mDataInputStream[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:46: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   variable train_img_stream[0m
-[0m[[31merror[0m] [0m  location: class raw2seq[0m
-[0m[[31merror[0m] [0mtrain_img_stream[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:50: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   variable uri[0m
-[0m[[31merror[0m] [0m  location: class raw2seq[0m
-[0m[[31merror[0m] [0muri[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:61: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   variable DATA[0m
-[0m[[31merror[0m] [0m  location: class raw2seq[0m
-[0m[[31merror[0m] [0mDATA[0m
-[0m[[31merror[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java:61: cannot find symbol[0m
-[0m[[31merror[0m] [0m  symbol:   variable DATA[0m
-[0m[[31merror[0m] [0m  location: class raw2seq[0m
-[0m[[31merror[0m] [0mDATA[0m
+[0m[[0mdebug[0m] [0mAttempting to call com.sun.tools.javac.api.JavacTool@60e66f6d directly...[0m
 [0m[[0minfo[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java: /home/maolin/CnnOnSpark/src/main/java/raw2seq.java uses or overrides a deprecated API.[0m
 [0m[[0minfo[0m] [0m/home/maolin/CnnOnSpark/src/main/java/raw2seq.java: Recompile with -Xlint:deprecation for details.[0m
-[0m[[31merror[0m] [0m(compile:[31mcompileIncremental[0m) javac returned nonzero exit code[0m
+[0m[[0mdebug[0m] [0mJava compilation took 0.429797749 s[0m
+[0m[[0mdebug[0m] [0mJava analysis took 0.055465366 s[0m
+[0m[[0mdebug[0m] [0mJava compile + analysis took 0.490784933 s[0m
+[0m[[0mdebug[0m] [0mNew invalidations:[0m
+[0m[[0mdebug[0m] [0m	Set()[0m
+[0m[[0mdebug[0m] [0mInitial set of included nodes: Set()[0m
+[0m[[0mdebug[0m] [0mPreviously invalidated, but (transitively) depend on new invalidations:[0m
+[0m[[0mdebug[0m] [0m	Set()[0m
+[0m[[0mdebug[0m] [0mAll newly invalidated sources after taking into account (previously) recompiled sources:Set()[0m
